@@ -1,6 +1,6 @@
 import './App.css';
 // import React, { useState } from 'react'
-import Navbar from './components/Navbar/Navbar';
+import NavBar from './components/NavBar/NavBar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
@@ -13,7 +13,7 @@ function App() {
     <div className="App">
         <CartProvider>
         <BrowserRouter>
-          <Navbar />
+          <NavBar />
           <Routes>
             <Route path='/' element={<ItemListContainer />}/>  
             <Route path='/category/:categoryId' element={<ItemListContainer />} />

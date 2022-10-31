@@ -7,12 +7,12 @@ const Cart = () => {
     const { cart, removeItem, total, clearCart } = useContext(CartContext)
 
     return (
-        <div>
+        <div className='cart'>
             <h1>Carrito</h1>
             <article className="CardItem">
             {
                 cart.map(prod => (
-                    <div>
+                    <div className='list'>
                         
                         {prod.name} - cantidad: {prod.quantity}
                         <button className='Button' onClick={() => removeItem(prod.id)}>remover</button>                  
