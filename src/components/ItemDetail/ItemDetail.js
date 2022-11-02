@@ -25,7 +25,7 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
     const quantityAdded = getProductQuantity(id)
 
     return (
-        <article className="CardItem">
+        <div className="CardItem">
             <header className="Header">
                 <h2 className="ItemHeader">
                     {name}
@@ -50,11 +50,11 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
                     !isInCart(id) 
                         ? 
                         <Counter onAdd={handleOnAdd} stock={stock} initial={quantityAdded} />
-                        : <Link to='/cart' className='Option'>Finalizar compra</Link>
+                        : <Link to='/cart' className='Option'>Proceder con la compra</Link>
                 }
                 
             </footer>
-        </article>
+        </div>
     )
 }
 
