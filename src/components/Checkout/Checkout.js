@@ -6,6 +6,7 @@ import { db } from '../../services/firebase/index'
 import { useNavigate } from "react-router-dom"
 import  ClientForm  from '../Form/Form'
 import Swal from "sweetalert2";
+import { Link } from 'react-router-dom'
 
 const Checkout = () => {
     const [loading, setLoading] = useState(false)
@@ -85,35 +86,42 @@ const Checkout = () => {
         
     }
 
+
+     
     if(loading) {
         return <h1>Se esta procesando su pedido...</h1>
     }
+    
+
+
 
     return (    
-        <div>
-            <h1>Completa los siguientes datos.</h1>
+        <div className='checkout'>
+            <h1 className='titulo'>Completa los siguientes datos.</h1>
             <ClientForm information={information}/>
             { personalData 
-            // ?Swal.fire({
-            //     title: 'Confirma generar el pedido?',
-            //     showDenyButton: true,
-            //     showCancelButton: true,
-            //     confirmButtonText: 'Si',
-            //     denyButtonText: `No`,
-            //   }).then((result) => {
-                
-            //     if (result.isConfirmed) {
-                   
-            //       Swal.fire('Generado', '', 'success')
-                  
-            //     } else if (result.isDenied) {
-            //       Swal.fire('No se genero el pedido', '', 'info')
-            //     }
-            //   })
-            ?<button className='Button' onClick={createOrder}>Generar Pedido</button> 
+           
+            ?<button className='ButtonConfirm' onClick={createOrder}>Generar Pedido</button> 
             : ""}
         </div>
     )
 }
 
 export default Checkout
+
+// Swal.fire({
+//     title: 'Confirma generar el pedido?',
+//     showDenyButton: true,
+//     showCancelButton: true,
+//     confirmButtonText: 'Si',
+//     denyButtonText: `No`,
+//   }).then((result) => {
+    
+//     if (result.isConfirmed) {
+       
+//       Swal.fire('Generado', '', 'success')
+      
+//     } else if (result.isDenied) {
+//       Swal.fire('No se genero el pedido', '', 'info')
+//     }
+//   })

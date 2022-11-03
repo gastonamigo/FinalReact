@@ -1,9 +1,9 @@
-.Button {
+.ButtonConfirm {
     width: auto;
     padding: 12px;
     margin: 8px;
-    font-size: 12px;
-    background: #0096c7;
+    font-size: 22px;
+    background: #02a57c;
     border-radius: 8px;
     display: flex;
     align-self: center;
@@ -14,4 +14,13 @@
     border: none;
     border-style: none;
     cursor: pointer;
+ }
+ .checkout{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+ }
+ .titulo{
+    color: #0b6da5;
+    margin-top: 10px;
  }
