@@ -5,8 +5,7 @@ import { collection, getDocs, query, where, documentId, writeBatch, addDoc } fro
 import { db } from '../../services/firebase/index'
 import { useNavigate } from "react-router-dom"
 import  ClientForm  from '../Form/Form'
-import Swal from "sweetalert2";
-import { Link } from 'react-router-dom'
+import Swal from 'sweetalert2'
 
 const Checkout = () => {
     const [loading, setLoading] = useState(false)
@@ -41,7 +40,7 @@ const Checkout = () => {
 
             const ids = cart.map(prod => prod.id)
     
-            const productsRef = collection(db, 'products')
+            const productsRef = collection(db, 'Products')
     
             const productsAddedFromFirestore = await getDocs(query(productsRef, where(documentId(), 'in', ids)))
 
@@ -73,9 +72,19 @@ const Checkout = () => {
                 setTimeout(() => {
                     navigate('/')
                 }, 2000)
-                console.log('success', `El id de su orden es: ${orderAdded.id}`)
+                console.log(`El id de su orden es: ${orderAdded.id}`)
+                Swal.fire({
+                    icon: 'success',
+                    title: 'La orden de compra se realizo con exito',
+                    text: `Codigo de operacion: ${orderAdded.id}`
+                })
             } else {
-                console.log('error','hay productos que estan fuera de stock')
+                console.log('hay productos que estan fuera de stock')
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Hay productos fuera de stock',
+                })
+                
             }
 
         } catch (error) {
