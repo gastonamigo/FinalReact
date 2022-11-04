@@ -8,7 +8,7 @@
 }
 
 .Button{
-    padding: 8px;
+    padding: auto;
     margin: 10px;
     border: none;
     border-radius: 10px;
@@ -38,4 +38,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: row;
+}
+.ButtonDecrement{
+    padding-right: 11px;
+    padding-left: 11px;
 }

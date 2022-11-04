@@ -39,4 +39,11 @@
     border-style: none;
     cursor: pointer;
  }
+ .tagStock{
+    padding-right: 12px;
+ }
+ .ItemFooter{
+    display:flex;
+    flex-direction: column;
+ }
 

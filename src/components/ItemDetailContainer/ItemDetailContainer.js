@@ -42,7 +42,7 @@ const ItemDetailContainer = ({ setCart }) => {
     return(
         <div className='ItemDetailContainer' >
             <ItemDetail  {...product} />
-            <button className='Option' onClick={() => navigate(-1)}>Volver</button>
+            <button className='Button' onClick={() => navigate(-1)}>Volver</button>
         </div>
     )
 }

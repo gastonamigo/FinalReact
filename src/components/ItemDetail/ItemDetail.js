@@ -1,25 +1,41 @@
 import './ItemDetail.css'
 import Counter from '../Counter/Counter'
 import { useContext } from 'react'
+import {  useState } from 'react'
 import { CartContext } from '../../context/CartContext'
 import { Link } from 'react-router-dom'
-// import { NotificationContext } from '../../notification/NotificationService'
+import Swal from 'sweetalert2'
 
 const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
    
-    const { addItem, isInCart, getProductQuantity } = useContext(CartContext)
-    // const { setNotification } = useContext(NotificationContext)
+    const { addItem, getProductQuantity } = useContext(CartContext)
+    
+    const [goToCart, setGoToCart] = useState (false)
+    
+
+
 
     const handleOnAdd = (quantity) => {
-
         const productToAdd = {
             id,
+            img,
             name,
-            price
+            category,
+            price,
+            description
         }
-
+        setGoToCart(true);
         addItem(productToAdd, quantity)
-        // setNotification('error', `Se agrego correctamente ${quantity} ${name}`)
+                
+        Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: `Se agrego al carrito ${quantity} ${name}`,
+            showConfirmButton: false,
+            timer: 1500
+                                                
+        })
+       
     }
 
     const quantityAdded = getProductQuantity(id)
@@ -46,13 +62,18 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
                 </p>
             </section>           
             <footer className='ItemFooter'>
-                {
-                    !isInCart(id) 
-                        ? 
-                        <Counter onAdd={handleOnAdd} stock={stock} initial={quantityAdded} />
-                        : <Link to='/cart' className='Button'>Proceder con la compra</Link>
+            { stock!==0 ? <Counter onAdd={handleOnAdd} stock={stock} initial={quantityAdded} /> : <h4 className='tagStock'>Producto<br/>Sin Stock</h4> }
+        { !goToCart ? true :
+        <div className="buttonsDetail">
+        <Link to='/cart' className="Button">Ir al carrito</Link>
+        <Link to='/' className="Button">Seguir comprando</Link> 
+        </div> }
+        { goToCart ? true
+        : 
+        <div>
+            <Link to='/' className="Button">Volver al listado</Link> 
+                </div>
                 }
-                
             </footer>
         </div>
     )

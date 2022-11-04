@@ -83,15 +83,7 @@ const Checkout = () => {
                     })
                
                 
-            } else {
-                console.log('hay productos que estan fuera de stock')
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Hay productos sin stock',
-                    
-                })
-                
-            }
+            } 
 
         } catch (error) {
             console.log(error)
