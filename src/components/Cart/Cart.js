@@ -20,23 +20,25 @@ const Cart = () => {
 
     return (
         <div className='cart'>
-            <h1>Carrito</h1>
+            <h1 className='titulo'>Carrito</h1>
             <div className="CardItem">
-            <h2>Productos</h2>
+           
+            <h2 className='titulo'>Productos</h2>
+            
             {
                 
                 cart.map(prod => (
                     
                     <div className='list'>
-                        {prod.name} - cantidad: {prod.quantity}
-                        <button className='Button' onClick={() => removeItem(prod.id)}>remover</button>                  
+                        <h5 className='cartList'>{prod.name} - cantidad: {prod.quantity}</h5>
+                        <button className='removeButton' onClick={() => removeItem(prod.id)}>Quitar</button>                  
                        
                     </div>
                 ))
             }
 
             <div className='total'>
-                Precio total: {total}
+                Precio total: ${total}.-
             </div>
 
             <button className='Button' onClick={() => clearCart()}>Limpiar carrito</button>

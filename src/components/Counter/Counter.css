@@ -7,29 +7,26 @@
     margin: auto;
 }
 
-.Button {
-    text-decoration: none;
-    border-radius: 25;
-    margin: 0 30px;
-    width: auto;
-    padding: 12px;
-    font-size: 8px;
-    background: #0096c7;
-    border-radius: 8px;
-    display: flex;
-    align-self: center;
-    flex-grow: 0;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    color: #FFFFFF;
+.Button{
+    padding: 8px;
+    margin: 10px;
     border: none;
-    border-style: none;
-    cursor: pointer;
-    outline: inherit;
-    font-size: larger;
+    border-radius: 10px;
+    box-shadow: 0 2px 0 #59747e;
+    background-color:#0096c7;
+    transition: all 0.2;
+    font-size: 12px;
+}
+.Button a{
+    color: white;    
+    text-transform: uppercase;
+    text-decoration: none;
 }
 
+.Button:hover{
+    transform: translateY(1px);
+    box-shadow: 0 2px 0 #0096c7;
+}
 .Number {
     font-size: 20px;
     padding: 20px;
@@ -40,4 +37,5 @@
 .Controls {
     display: flex;
     justify-content: center;
+    align-items: center;
 }

@@ -50,7 +50,7 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
                     !isInCart(id) 
                         ? 
                         <Counter onAdd={handleOnAdd} stock={stock} initial={quantityAdded} />
-                        : <Link to='/cart' className='Option'>Proceder con la compra</Link>
+                        : <Link to='/cart' className='Button'>Proceder con la compra</Link>
                 }
                 
             </footer>

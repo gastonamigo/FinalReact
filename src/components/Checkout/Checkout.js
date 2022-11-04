@@ -20,7 +20,7 @@ const Checkout = () => {
         }
     
 
-    const { cart, total, clearCart } = useContext(CartContext)
+    const { cart, total, clearCart} = useContext(CartContext)
 
     const navigate = useNavigate()
     
@@ -39,6 +39,7 @@ const Checkout = () => {
             const outOfStock = []
 
             const ids = cart.map(prod => prod.id)
+            
     
             const productsRef = collection(db, 'Products')
     
@@ -73,16 +74,21 @@ const Checkout = () => {
                     navigate('/')
                 }, 2000)
                 console.log(`El id de su orden es: ${orderAdded.id}`)
-                Swal.fire({
-                    icon: 'success',
-                    title: 'La orden de compra se realizo con exito',
-                    text: `Codigo de operacion: ${orderAdded.id}`
-                })
+                
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'La orden de compra se realizo con exito',
+                        text: `Codigo de operacion: ${orderAdded.id}`,
+                                                
+                    })
+               
+                
             } else {
                 console.log('hay productos que estan fuera de stock')
                 Swal.fire({
                     icon: 'error',
-                    title: 'Hay productos fuera de stock',
+                    title: 'Hay productos sin stock',
+                    
                 })
                 
             }
@@ -117,20 +123,3 @@ const Checkout = () => {
 }
 
 export default Checkout
-
-// Swal.fire({
-//     title: 'Confirma generar el pedido?',
-//     showDenyButton: true,
-//     showCancelButton: true,
-//     confirmButtonText: 'Si',
-//     denyButtonText: `No`,
-//   }).then((result) => {
-    
-//     if (result.isConfirmed) {
-       
-//       Swal.fire('Generado', '', 'success')
-      
-//     } else if (result.isDenied) {
-//       Swal.fire('No se genero el pedido', '', 'info')
-//     }
-//   })

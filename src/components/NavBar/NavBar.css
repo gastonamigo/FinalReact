@@ -50,17 +50,14 @@
   }
   
   .ActiveOption {
-    /* color: #8C30F5; */
     text-decoration: none;
     border-radius: 10;
     margin: 0 25px;
-    /* TODO */
     width: auto;
     padding: 12px;
     font-size: 15px;
     background: #5a91df;
     border-radius: 5px;
-    flex: none;
     display: flex;
     order: 1;
     align-self: center;
