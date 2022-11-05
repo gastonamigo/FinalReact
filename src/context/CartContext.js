@@ -30,7 +30,7 @@ export const CartProvider = ({children}) => {
                 if(prod.id === productToAdd.id) {
                     const productUpdated = {
                         ...prod,
-                        quantity: quantity
+                        quantity: quantity +prod.quantity
                     }
 
                     return productUpdated
